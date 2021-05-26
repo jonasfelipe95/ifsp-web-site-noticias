@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: 0;
+  box-sizing: border-box;
   outline: none;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -73,6 +73,11 @@ footer {
 .powered-by-container {
   background: #000;
 }
+.flex {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
 
 .powered-by {
   color: #fff;
@@ -108,4 +113,62 @@ footer {
 .menu-item:hover {
   background: #00000012;
   border-color: darkblue;
+}
+
+.form-container {
+  min-height: calc(100vh - 200px);
+}
+
+.contact-form {
+  padding: 32px;
+}
+.contact-form .btn-container {
+  display: flex;
+  width: 100%;
+  padding: 32px;
+  justify-content: center;
+}
+.contact-form .btn-container button {
+  height: 40px;
+  background: darkblue;
+  color: #fff;
+  font-weight: 600;
+  width: 240px;
+  max-width: 100%;
+  border: none;
+  border-radius: 4px;
+}
+.contact-form label,
+.contact-form input,
+.contact-form textarea {
+  display: block;
+  width: 100%;
+}
+.form-group {
+  padding-bottom: 16px;
+}
+.flex .form-group {
+  width: calc(50% - 8px);
+}
+input,
+textarea,
+select {
+  border: 1px solid #00000024;
+  border-radius: 4px;
+  background: transparent;
+}
+label {
+  padding: 0 8px 4px;
+}
+input,
+select {
+  height: 40px;
+  padding: 0 8px;
+}
+textarea {
+  height: 80px;
+  padding: 4px 8px;
+}
+textarea {
+  resize: none;
 }

@@ -1,0 +1,50 @@
+[
+    {
+        "title": "Notícia 1",
+        "author": "Autor 1",
+        "category": "Categoria 1",
+        "data": "21/05/2021",
+        "description": "Esses são os dados de descrição da notícia 1",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfxz1zg6LkRr2g67dJHQGypkGiNosbmmAyYA&usqp=CAU"
+    },
+    {
+        "title": "Notícia 2",
+        "author": "Autor 2",
+        "category": "Categoria 2",
+        "data": "22/05/2021",
+        "description": "Esses são os dados de descrição da notícia 2",
+        "image": "https://i.pinimg.com/originals/76/b5/d1/76b5d1eacab0dd2c836285bce178cdaa.jpg"
+    },
+    {
+        "title": "Notícia 3",
+        "author": "Autor 3",
+        "category": "Categoria 3",
+        "data": "23/05/2021",
+        "description": "Esses são os dados de descrição da notícia 3",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzkCozBMjTPGqBNKZDS8TRXf1Uqykz9k0S0RUvschFmmBdhSewDKBl69b7TgXH2HuKVFM&usqp=CAU"
+    },
+    {
+        "title": "Notícia 4",
+        "author": "Autor 4",
+        "category": "Categoria 4",
+        "data": "24/05/2021",
+        "description": "Esses são os dados de descrição da notícia 4",
+        "image": "https://www.cbmcint.com/wp-content/uploads/2020/10/Dec-28-MM.jpg"
+    },
+    {
+        "title": "Notícia 5",
+        "author": "Autor 5",
+        "category": "Categoria 5",
+        "data": "25/05/2021",
+        "description": "Esses são os dados de descrição da notícia 5",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5JOnxAmNnso2sAhBqh8g35oPJ1QM5-f0rtgIYaXLNT4e2hF9EDmWt2E1C-676j11Ak7M&usqp=CAU"
+    },
+    {
+        "title": "Notícia 6",
+        "author": "Autor 6",
+        "category": "Categoria 6",
+        "data": "26/05/2021",
+        "description": "Esses são os dados de descrição da notícia 6",
+        "image": "https://images.unsplash.com/photo-1596468788414-dce90fa1e625?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+    }
+]
