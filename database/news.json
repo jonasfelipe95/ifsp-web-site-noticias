@@ -38,13 +38,5 @@
         "data": "25/05/2021",
         "description": "Esses são os dados de descrição da notícia 5",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5JOnxAmNnso2sAhBqh8g35oPJ1QM5-f0rtgIYaXLNT4e2hF9EDmWt2E1C-676j11Ak7M&usqp=CAU"
-    },
-    {
-        "title": "Notícia 6",
-        "author": "Autor 6",
-        "category": "Categoria 6",
-        "data": "26/05/2021",
-        "description": "Esses são os dados de descrição da notícia 6",
-        "image": "https://images.unsplash.com/photo-1596468788414-dce90fa1e625?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
     }
 ]
