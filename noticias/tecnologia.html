@@ -7,9 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tecnologia</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
 </head>
 
-<body onload="loadPage('TECNOLOGY')">
+<body onload="loadPage('tecnology')">
     <header class="header">
         <div class="container">
             <nav class="menu-container">
@@ -57,10 +60,30 @@
     <div class="page-head">
         <div class="container">
             <h1 class="title-page">Tecnologia</h1>
+            <div class="search-container">
+                <input id="search-input" type="text" placeholder="Buscar" oninput="onInputSearch()">
+            </div>
         </div>
     </div>
 
-    <div id="news"> </div>
+    <div id="news" class="news-list">
+        <div class="loading-container">
+            <div class="lds-spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="powered-by-container">
@@ -79,6 +102,7 @@
         </div>
     </footer>
 
+    <script src="../js/environment.js"></script>
     <script src="../js/index.js"></script>
 </body>
 

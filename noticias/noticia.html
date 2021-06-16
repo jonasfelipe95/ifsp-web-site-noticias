@@ -5,50 +5,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Notícias</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Notícia</title>
+    <link rel="stylesheet" href="../css/news-detail-style.css">
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
 </head>
 
-<body onload="loadPage('news')">
+<body onload="onLoadNewsDetail()">
     <header class="header">
         <div class="container">
             <nav class="menu-container">
                 <ul class="menu">
-                    <li class="menu-item active">
-                        <a href="index.html">
+                    <li class="menu-item">
+                        <a href="../index.html">
                             Notícias
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="noticias/educacao.html">
+                        <a href="educacao.html">
                             Educação
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="noticias/financas.html">
+                        <a href="financas.html">
                             Finanças
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="noticias/politica.html">
+                        <a href="politica.html">
                             Política
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="noticias/saude.html">
+                        <a href="saude.html">
                             Saúde
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="noticias/tecnologia.html">
+                        <a href="tecnologia.html">
                             Tecnologia
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="contato.html">
+                        <a href="../contato.html">
                             Contato
                         </a>
                     </li>
@@ -57,16 +57,7 @@
         </div>
     </header>
 
-    <div class="page-head">
-        <div class="container">
-            <h1 class="title-page">Notícias em Destaque</h1>
-            <div class="search-container">
-                <input id="search-input" type="text" placeholder="Buscar" oninput="onInputSearch()">
-            </div>
-        </div>
-    </div>
-
-    <div id="news" class="news-list">
+    <div id="loading-container" class="container show box-container">
         <div class="loading-container">
             <div class="lds-spinner">
                 <div></div>
@@ -85,6 +76,31 @@
         </div>
     </div>
 
+    <div id="news-container" class="container hidden box-container">
+        <h2 id="news-title" class="news-title"></h2>
+
+        <h3 id="news-subtitle" class="news-subtitle"></h3>
+
+        <img id="news-image" class="news-image" src alt>
+
+        <div class="flex">
+            <span id="news-date" class="news-date"></span>
+
+            <div id="news-category" class="news-category"></div>
+        </div>
+
+        <div id="news-author" class="news-author"></div>
+
+        <div id="news-text" class="news-text"></div>
+    </div>
+
+
+    <div id="not-found-container" class="container hidden box-container">
+        <p class="not-found-text">NOTÍCIA NÃO ENCONTRADA</p>
+    </div>
+
+
+
     <footer>
         <div class="powered-by-container">
             <div class="container flex-center">
@@ -101,8 +117,12 @@
             </div>
         </div>
     </footer>
-    <script src="./js/environment.js"></script>
-    <script src="./js/index.js"></script>
+
+
+
+    <script src="../js/environment.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/news-detail.js"></script>
 </body>
 
 </html>
