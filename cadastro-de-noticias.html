@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Notícias - Contato</title>
+    <title>JS Notícias - Cadastrar Notícia</title>
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" href="css/style.css">
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
@@ -53,12 +53,12 @@
                             Favoritas
                         </a>
                     </li>
-                    <li class="menu-item hidden" id="register-link">
+                    <li class="menu-item hidden active" id="register-link">
                         <a href="cadastro-de-noticias.html">
                             Cadastrar Notícia
                         </a>
                     </li>
-                    <li class="menu-item active">
+                    <li class="menu-item">
                         <a href="contato.html">
                             Contato
                         </a>
@@ -87,29 +87,51 @@
         <div class="container">
             <form class="contact-form">
                 <div class="form-group">
-                    <label for="name">Nome</label>
-                    <input id="name" type="text">
+                    <label for="title">Título</label>
+                    <input id="title" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="sub-title">Sub-Título</label>
+                    <input id="sub-title" type="text">
                 </div>
                 <div class="flex">
                     <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email">
+                        <label for="category">Categoria</label>
+                        <select id="category">
+                            <option value="education">Educação</option>
+                            <option value="finances">Finanças</option>
+                            <option value="politics">Política</option>
+                            <option value="health">Saúde</option>
+                            <option value="tecnology">Tecnologia</option>
+                            <option value="favorites">Favoritas</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="phone">Telefone</label>
-                        <input type="text" id="phone">
+                        <label for="date">Data</label>
+                        <input id="date" type="date">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="subject">Motivo do Contato</label>
-                    <input type="text" id="subject">
+                    <label for="image-url">Imagem (URL)</label>
+                    <input id="image-url" type="text">
                 </div>
+                <div class="form-group">
+                    <label for="link">Link de referência (URL)</label>
+                    <input id="link" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="authors">Autores</label>
+                    <input id="authors" type="text">
+                </div>
+
+
+
                 <div class="form-group">
                     <label for="description">Descrição</label>
                     <textarea id="description"></textarea>
                 </div>
                 <div class="btn-container">
-                    <button type="button" onclick="submitContact()">Enviar</button>
+                    <button type="button" onclick="submitNews()">Cadastrar Notícia</button>
                 </div>
             </form>
         </div>
@@ -135,7 +157,7 @@
     <script src="./js/environment.js"></script>
     <script src="./js/index.js"></script>
     <script src="./js/auth.js"></script>
-    <script src="./js/contact.js"></script>
+    <script src="./js/news.js"></script>
 </body>
 
 </html>

@@ -28,9 +28,63 @@ body {
 }
 .container {
   width: 100%;
-  max-width: 970px;
+  max-width: 1160px;
   margin: 0 auto;
 }
+
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-auth-card {
+  width: 80px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  background-color: #00000006;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: 40px;
+  border: 1px solid #bababa;
+  cursor: pointer;
+  color: #0008;
+  text-decoration: none;
+}
+
+.header-auth-card:hover,
+.header-auth-card:hover .profile-initials {
+  border-color: #707070;
+}
+
+.logout-btn {
+  justify-content: space-between;
+}
+
+.profile-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #bababa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.logout-text {
+  display: block;
+  width: 40px;
+  text-align: center;
+}
+
 
 .title-page {
   font-size: 24px;

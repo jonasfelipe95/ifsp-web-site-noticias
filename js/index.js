@@ -1,6 +1,8 @@
 let searchTimeout;
 let searchInput;
 let categoryPage;
+let newsListHandled;
+let scrambledNewsList;
 
 const categories = {
   EDUCATION: "education",
@@ -8,6 +10,7 @@ const categories = {
   POLITICS: "politics",
   HEALTH: "health",
   TECNOLOGY: "tecnology",
+  FAVORITES: "favorites",
   NEWS: "news",
 };
 
@@ -17,18 +20,26 @@ const categoriesTranslate = {
   POLITICS: "Política",
   HEALTH: "Saúde",
   TECNOLOGY: "Tecnologia",
+  FAVORITES: "Favoritas",
   NEWS: "Notícias",
 };
 
 const loadPage = async (category) => {
   searchInput = document.getElementById("search-input");
   categoryPage = category;
+  if (loadingUser || !category) return;
 
   try {
-    const newsListHandled = await getNewsList(category);
-    const scrambledNewsList = await shuffleNewsList(newsListHandled);
+    newsListHandled = (await getNewsList(category)) || [];
+    scrambledNewsList = await shuffleNewsList(newsListHandled);
 
-    renderNewsList(scrambledNewsList, category);
+    renderNewsList(
+      (category = categories.NEWS
+        ? scrambledNewsList.splice(0, 6)
+        : scrambledNewsList),
+      category,
+      likedNews
+    );
   } catch (error) {
     console.error(error);
   }
@@ -48,7 +59,27 @@ const getNewsList = async (category) => {
           ...news.data(),
         }))
       );
+  } else if (!!logedUser && category === categories.FAVORITES) {
+    return db
+      .collection("news")
+      .orderBy("title")
+      .startAt(searchInput.value || "")
+      .endAt((searchInput.value || "") + "\uf8ff")
+      .get()
+      .then((newsList) =>
+        newsList.docs
+          .map((news) => ({
+            id: news.id,
+            ...news.data(),
+          }))
+          .filter((news) => likedNews.some((n) => n.newsId === news.id))
+      );
   } else {
+    if (category === categories.FAVORITES && !loadingUser) {
+      window.location.replace("../index.html");
+      return;
+    }
+
     return db
       .collection("news")
       .orderBy("title")
@@ -80,7 +111,43 @@ const shuffleNewsList = (newsList) => {
   return newsList;
 };
 
-const renderNewsList = (newsList, category) => {
+const likeNews = (newsId) => {
+  return db
+    .collection("news-likeds")
+    .add({
+      userId: logedUser.uid,
+      newsId: newsId,
+    })
+    .then(async (res) => {
+      likedNews = await getLikedNews();
+      renderNewsList(
+        (categoryPage = categories.NEWS
+          ? scrambledNewsList.splice(0, 6)
+          : scrambledNewsList),
+        categoryPage,
+        likedNews
+      );
+    });
+};
+
+const unlikeNews = (newsLikedId) => {
+  return db
+    .collection("news-likeds")
+    .doc(newsLikedId)
+    .delete()
+    .then(async () => {
+      likedNews = await getLikedNews();
+      renderNewsList(
+        (categoryPage = categories.NEWS
+          ? scrambledNewsList.splice(0, 6)
+          : scrambledNewsList),
+        categoryPage,
+        likedNews
+      );
+    });
+};
+
+const renderNewsList = (newsList, category, likeds) => {
   const newsContainer = document.getElementById("news");
 
   const internalContainer = document.createElement("div");
@@ -89,7 +156,16 @@ const renderNewsList = (newsList, category) => {
   const newsListElement = document.createElement("ul");
 
   newsList.forEach((news) => {
-    newsListElement.append(mountNews(news, category));
+    const liked = likeds.find((newsLiked) => newsLiked.newsId === news.id);
+
+    newsListElement.append(
+      mountNews(
+        news,
+        category,
+        !!liked,
+        !liked ? () => likeNews(news.id) : () => unlikeNews(liked.id)
+      )
+    );
   });
 
   if (!newsList.length) {
@@ -104,9 +180,25 @@ const renderNewsList = (newsList, category) => {
   newsContainer.append(internalContainer);
 };
 
-const mountNews = (news, category) => {
+const mountNews = (news, category, liked, likeAction) => {
   const item = document.createElement("li");
   item.classList.add("news-card");
+
+  if (!!logedUser) {
+    const likeBtn = document.createElement("button");
+    likeBtn.classList.add("like-btn");
+    likeBtn.onclick = likeAction;
+    likeBtn.title = "Curtir";
+
+    const likeBtnIcon = document.createElement("img");
+    likeBtnIcon.src = liked
+      ? "../assets/icons/liked-icon.svg"
+      : "../assets/icons/unliked-icon.svg";
+
+    likeBtn.appendChild(likeBtnIcon);
+
+    item.append(likeBtn);
+  }
 
   const image = document.createElement("img");
   image.classList.add("news-image");
@@ -169,3 +261,5 @@ const onInputSearch = (e) => {
     loadPage(categoryPage);
   }, 1000);
 };
+
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);

@@ -5,68 +5,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Notícias - Contato</title>
-    <link rel="shortcut icon" href="favicon.ico" />
-    <link rel="stylesheet" href="css/style.css">
+    <title>JS Notícias - Notícias Favoritas</title>
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../css/style.css">
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
 </head>
 
-<body>
+<body onload="loadPage('favorites')">
     <header class="header">
         <div class="container">
             <nav class="menu-container">
                 <ul class="menu">
                     <li class="menu-item">
-                        <a href="index.html">
+                        <a href="../index.html">
                             Notícias
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="noticias/educacao.html">
+                        <a href="educacao.html">
                             Educação
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="noticias/financas.html">
+                        <a href="financas.html">
                             Finanças
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="noticias/politica.html">
+                        <a href="politica.html">
                             Política
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="noticias/saude.html">
+                        <a href="saude.html">
                             Saúde
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="noticias/tecnologia.html">
+                        <a href="tecnologia.html">
                             Tecnologia
                         </a>
                     </li>
-                    <li class="menu-item hidden" id="favorites-link">
-                        <a href="noticias/favoritas.html">
+                    <li class="menu-item hidden active" id="favorites-link">
+                        <a href="favoritas.html">
                             Favoritas
                         </a>
                     </li>
                     <li class="menu-item hidden" id="register-link">
-                        <a href="cadastro-de-noticias.html">
+                        <a href="../cadastro-de-noticias.html">
                             Cadastrar Notícia
                         </a>
                     </li>
-                    <li class="menu-item active">
-                        <a href="contato.html">
+                    <li class="menu-item">
+                        <a href="../contato.html">
                             Contato
                         </a>
                     </li>
                 </ul>
             </nav>
             <div class="header-auth">
-                <a href="./login.html" id="access-btn" class="header-auth-card">
+                <a href="../login.html" id="access-btn" class="header-auth-card">
                     ACESSAR
                 </a>
                 <div onclick="logout()" id="logout-btn" class="header-auth-card logout-btn">
@@ -79,39 +79,29 @@
 
     <div class="page-head">
         <div class="container">
-            <h1 class="title-page">Contato</h1>
+            <h1 class="title-page">Favoritas</h1>
+            <div class="search-container">
+                <input id="search-input" type="text" placeholder="Buscar" oninput="onInputSearch()">
+            </div>
         </div>
     </div>
 
-    <div class="form-container">
-        <div class="container">
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Nome</label>
-                    <input id="name" type="text">
-                </div>
-                <div class="flex">
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Telefone</label>
-                        <input type="text" id="phone">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="subject">Motivo do Contato</label>
-                    <input type="text" id="subject">
-                </div>
-                <div class="form-group">
-                    <label for="description">Descrição</label>
-                    <textarea id="description"></textarea>
-                </div>
-                <div class="btn-container">
-                    <button type="button" onclick="submitContact()">Enviar</button>
-                </div>
-            </form>
+    <div id="news" class="news-list">
+        <div class="loading-container">
+            <div class="lds-spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
     </div>
 
@@ -132,10 +122,10 @@
         </div>
     </footer>
 
-    <script src="./js/environment.js"></script>
-    <script src="./js/index.js"></script>
-    <script src="./js/auth.js"></script>
-    <script src="./js/contact.js"></script>
+
+    <script src="../js/environment.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/index.js"></script>
 </body>
 
 </html>

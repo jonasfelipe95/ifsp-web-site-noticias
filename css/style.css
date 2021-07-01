@@ -29,7 +29,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 970px;
+  max-width: 1160px;
   margin: 0 auto;
 }
 
@@ -69,6 +69,7 @@ body {
   font-size: 24px;
   padding: 16px 48px;
 }
+
 .news-card {
   overflow: hidden;
   border-radius: 8px;
@@ -79,7 +80,34 @@ body {
   padding: 0 0 16px;
   border: 1px solid #0004;
   border-radius: 8px;
+  position: relative;
 }
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.like-btn {
+  background: #fffc;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: none;
+  border-radius: 50%;
+  height: 28px;
+  width: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .news-image {
   width: 100%;
   height: 200px;
@@ -147,6 +175,7 @@ body {
   font-weight: bold;
   margin: 0 auto;
 }
+
 footer {
   background: lightblue;
   height: 72px;
@@ -176,13 +205,65 @@ footer {
 .powered-by {
   color: #fff;
 }
+
 .header {
   height: 72px;
   display: flex;
   align-items: center;
 }
-.menu-container {
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.header-auth-card {
+  width: 80px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  background-color: #00000006;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: 40px;
+  border: 1px solid #bababa;
+  cursor: pointer;
+  color: #0008;
+  text-decoration: none;
+}
+
+.header-auth-card:hover,
+.header-auth-card:hover .profile-initials {
+  border-color: #707070;
+}
+
+.logout-btn {
+  justify-content: space-between;
+}
+
+.profile-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #bababa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.logout-text {
+  display: block;
+  width: 40px;
+  text-align: center;
+}
+
 .menu {
   list-style: none;
   padding: 16px;
@@ -234,9 +315,11 @@ footer {
   max-width: 100%;
   border: none;
   border-radius: 4px;
+  cursor: pointer;
 }
 .contact-form label,
 .contact-form input,
+.contact-form select,
 .contact-form textarea {
   display: block;
   width: 100%;

@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notícia</title>
+    <title>JS Notícias - Detalhes da Notícia</title>
+    <link rel="shortcut icon" href="../favicon.ico" />
     <link rel="stylesheet" href="../css/news-detail-style.css">
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
@@ -47,6 +48,17 @@
                             Tecnologia
                         </a>
                     </li>
+                    <li class="menu-item hidden" id="favorites-link">
+                        <a href="favoritas.html">
+                            Favoritas
+                        </a>
+                    </li>
+                    <li class="menu-item hidden" id="register-link">
+                        <a href="../cadastro-de-noticias.html">
+                            Cadastrar Notícia
+                        </a>
+                    </li>
+            
                     <li class="menu-item">
                         <a href="../contato.html">
                             Contato
@@ -54,6 +66,15 @@
                     </li>
                 </ul>
             </nav>
+            <div class="header-auth">
+                <a href="../login.html" id="access-btn" class="header-auth-card">
+                    ACESSAR
+                </a>
+                <div onclick="logout()" id="logout-btn" class="header-auth-card logout-btn">
+                    <span id="profile-initials" class="profile-initials"></span>
+                    <span class="logout-text">Sair</span>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -121,6 +142,7 @@
 
 
     <script src="../js/environment.js"></script>
+    <script src="../js/auth.js"></script>
     <script src="../js/index.js"></script>
     <script src="../js/news-detail.js"></script>
 </body>
